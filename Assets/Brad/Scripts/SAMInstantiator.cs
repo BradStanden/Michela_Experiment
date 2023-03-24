@@ -56,10 +56,10 @@ public class SAMInstantiator : MonoBehaviour
     public void SaveIntoCSV()
     {
         string fileName = Application.persistentDataPath + "/SAM.csv";
-        string trialDeets = "\n" + GlobalVars.UID + "," + GlobalVars.Age + "," + GlobalVars.Sex + "," + GlobalVars.currentBlock + "," + GlobalVars.currentLevel + "," + GlobalVars.currentVersion + "," + GlobalVars.currentCondition + "," + Type + "," + GlobalVars.Score;
+        string trialDeets = "\n" + GlobalVars.UID + "," + GlobalVars.Age + "," + GlobalVars.Sex + "," + GlobalVars.currentBlock + "," + GlobalVars.currentLevel + "," + GlobalVars.currentVersion + "," + GlobalVars.currentCondition + "," + Type + "," + GlobalVars.Score + "," + System.DateTime.Now;
         if (!File.Exists(fileName))
         {
-            string trialHeader = "UID" + "," + "Age" + "," + "Sex" + "," + "Block" + "," + "Level" + "," + "Version" + "," + "Condition" + "," + "Variable" + "," + "Score";
+            string trialHeader = "UID" + "," + "Age" + "," + "Sex" + "," + "Block" + "," + "Level" + "," + "Version" + "," + "Condition" + "," + "Variable" + "," + "Score" + "," + "DateTime";
             File.WriteAllText(fileName, trialHeader);
         }
         File.AppendAllText(fileName, trialDeets);

@@ -17,11 +17,12 @@ public class VideoRoomInstantiator : MonoBehaviour
     public VideoPlayer videoPlayer;
 
     public int counter;
+    public bool once;
 
     void Awake()
     {
         timer = 0;
-       
+        once = false;
 
         ///sorts out the condition
         counter = Random.Range(0, GlobalVars.conditionList.Count);
@@ -58,9 +59,10 @@ public class VideoRoomInstantiator : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-
-        if (timer >= 10f)
+        
+        if (timer >= 20f && once == false)
         {
+            once = true;
             LevelContoller.next = true;
         }
         

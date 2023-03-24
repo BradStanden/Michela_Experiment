@@ -473,14 +473,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 253962836}
-  m_LocalRotation: {x: -0, y: -0.5, z: -0, w: 0.8660254}
+  m_LocalRotation: {x: -0, y: 0.21083461, z: -0, w: 0.9775218}
   m_LocalPosition: {x: 0, y: -79.39, z: 0}
   m_LocalScale: {x: 200, y: 0.01, z: 200}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1333905683}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 24.343, z: 0}
 --- !u!1 &259715463
 GameObject:
   m_ObjectHideFlags: 0
@@ -1549,14 +1549,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 0
-  Neutral1: {fileID: 32900000, guid: fb1ade699122d57458d9fe7d67573d4b, type: 3}
-  Neutral2: {fileID: 32900000, guid: fb1ade699122d57458d9fe7d67573d4b, type: 3}
-  Negative1: {fileID: 32900000, guid: fb1ade699122d57458d9fe7d67573d4b, type: 3}
-  Negative2: {fileID: 32900000, guid: fb1ade699122d57458d9fe7d67573d4b, type: 3}
-  Positive1: {fileID: 32900000, guid: fb1ade699122d57458d9fe7d67573d4b, type: 3}
-  Positive2: {fileID: 32900000, guid: fb1ade699122d57458d9fe7d67573d4b, type: 3}
+  Neutral1: {fileID: 32900000, guid: 0c3f10b60f633f947b84c6470d860508, type: 3}
+  Neutral2: {fileID: 32900000, guid: 0c3f10b60f633f947b84c6470d860508, type: 3}
+  Negative1: {fileID: 32900000, guid: 0c3f10b60f633f947b84c6470d860508, type: 3}
+  Negative2: {fileID: 32900000, guid: 0c3f10b60f633f947b84c6470d860508, type: 3}
+  Positive1: {fileID: 32900000, guid: 0c3f10b60f633f947b84c6470d860508, type: 3}
+  Positive2: {fileID: 32900000, guid: 0c3f10b60f633f947b84c6470d860508, type: 3}
   videoPlayer: {fileID: 483755827}
   counter: 0
+  once: 0
 --- !u!1 &881718896
 GameObject:
   m_ObjectHideFlags: 0
@@ -2353,7 +2354,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1676640876}
-  m_LocalRotation: {x: -0, y: -0.40253374, z: -0, w: 0.91540515}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2362,7 +2363,7 @@ Transform:
   - {fileID: 1333905683}
   m_Father: {fileID: 0}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: -47.473, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1912611488
 GameObject:
   m_ObjectHideFlags: 0

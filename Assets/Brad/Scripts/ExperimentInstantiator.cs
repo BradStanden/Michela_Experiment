@@ -51,12 +51,20 @@ public class ExperimentInstantiator : MonoBehaviour
         GlobalVars.baselineDuration = float.Parse(GlobalVars.variableData[1, 1]);
 
         GlobalVars.conditionList = new List<string> { "Neutral1", "Neutral2", "Negative1", "Negative2", "Positive1", "Positive2" };
+        GlobalVars.triggerCode = 0;
+        trigger();
 
     }
-
-
-    void Update()
+    public void trigger()
     {
-        
+        string fileName = Application.persistentDataPath + "/Events/" + GlobalVars.UID + ".csv";
+        string trialDeets = "\n" + GlobalVars.triggerCode + "," + System.DateTime.Now.ToString("HH:mm:ss:fffff") + "," + System.DateTime.Now.ToString("dd:MM:yyyy") + "," + GlobalVars.currentBlock + "," + GlobalVars.currentLevel + "," + GlobalVars.currentCondition;
+        if (!File.Exists(fileName))
+        {
+            string trialHeader = "TriggerValue" + "," + "SaveTime" + "," + "SaveDate" + "," + "Block" + "," + "Level" + "," + "Condition";
+            File.WriteAllText(fileName, trialHeader);
+        }
+        File.AppendAllText(fileName, trialDeets);
     }
+
 }
