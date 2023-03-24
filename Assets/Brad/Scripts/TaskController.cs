@@ -11,6 +11,7 @@ public class TaskController : MonoBehaviour
 {
 
     public List<int> TrialList;
+    public List<float> DurationList;
     List<int> tempList;
     public int counter;
     public int state; //1=trial select, 2=fixation, 3= primer, 4 = condition
@@ -59,33 +60,38 @@ public class TaskController : MonoBehaviour
     void Awake()
     {
         //make script to control this by button
-        GlobalVars.xTrials = 16;
+        //GlobalVars.xTrials = 16;
         rightController = InputDevices.GetDeviceAtXRNode(XRNode.RightHand);
-        tempList = new List<int> { 0 };
-        TrialList = new List<int> { 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3};
+        //tempList = new List<int> { 0 };
+
+        //Added spare digit in both lists
+        TrialList = new List<int> {99, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3 };
+        DurationList = new List<float> {99, 0.3f, 0.3f, 0.3f, 0.3f, 0.3f, 0.6f, 0.6f, 0.6f, 0.6f, 0.6f, 0.9f, 0.9f, 0.9f, 0.9f, 0.9f, 0.3f, 0.3f, 0.3f, 0.3f, 0.3f, 0.6f, 0.6f, 0.6f, 0.6f, 0.6f, 0.9f, 0.9f, 0.9f, 0.9f, 0.9f, 0.3f, 0.3f, 0.3f, 0.3f, 0.3f, 0.6f, 0.6f, 0.6f, 0.6f, 0.6f, 0.9f, 0.9f, 0.9f, 0.9f, 0.9f, 0.3f, 0.3f, 0.3f, 0.3f, 0.3f, 0.6f, 0.6f, 0.6f, 0.6f, 0.6f, 0.9f, 0.9f, 0.9f, 0.9f, 0.9f};
         finish = false;
 
-        if (GlobalVars.xTrials == 16)
-        {
-            tempList.AddRange(TrialList);
-            TrialList = tempList;
 
-        }
+        ///This was for outreach game to make short
+        //if (GlobalVars.xTrials == 16)
+        //{
+        //    tempList.AddRange(TrialList);
+        //    TrialList = tempList;
 
-        if (GlobalVars.xTrials == 32)
-        {
-            tempList.AddRange(TrialList);
-            tempList.AddRange(TrialList);
-            TrialList = tempList;
-        }
+        //}
 
-        if (GlobalVars.xTrials == 48)
-        {
-            tempList.AddRange(TrialList);
-            tempList.AddRange(TrialList);
-            tempList.AddRange(TrialList);
-            TrialList = tempList;
-        }
+        //if (GlobalVars.xTrials == 32)
+        //{
+        //    tempList.AddRange(TrialList);
+        //    tempList.AddRange(TrialList);
+        //    TrialList = tempList;
+        //}
+
+        //if (GlobalVars.xTrials == 48)
+        //{
+        //    tempList.AddRange(TrialList);
+        //    tempList.AddRange(TrialList);
+        //    tempList.AddRange(TrialList);
+        //    TrialList = tempList;
+        //}
         goCol = Color.blue;
         noGoCol = new Color(1.0f, 0.34f, 0.0f);
         ballRend = ball.GetComponent<Renderer>();
@@ -113,7 +119,8 @@ public class TaskController : MonoBehaviour
 
         if (state == 2)
         {
-            if (timer >= 2f)
+            GlobalVars.trialDuration = DurationList[counter]; 
+            if (timer >= DurationList[counter])
             {
                 //primerDisplay();
                 TrialDisplay();
@@ -129,7 +136,7 @@ public class TaskController : MonoBehaviour
 
         if (state == 4)
         {
-            if (timer >= 2)
+            if (timer >= 1.5f)
             {
                 if (doPress == true)
                 {
@@ -141,7 +148,7 @@ public class TaskController : MonoBehaviour
                     GlobalVars.correctCount += 1;
 
                 }
-                //SaveIntoCSV();
+                SaveIntoCSV();
                 TrialSelect();
             }
 
@@ -149,33 +156,23 @@ public class TaskController : MonoBehaviour
             if (rightController.TryGetFeatureValue(CommonUsages.triggerButton, out triggerValue) && triggerValue)
             {
                 pressed = true;
+                GlobalVars.triggerCode = 25;
+                trigger();
                 GlobalVars.xRT = timer;
 
                 if (doPress == true)
                 {
                     GlobalVars.xCorrect = true;
-                    GlobalVars.correctCount += 1;
-                    if (GlobalVars.xType == 0)
-                    {
-                        GlobalVars.totalRT += GlobalVars.xRT;
-                        GlobalVars.congRT += GlobalVars.xRT;
-                    }
-                    if (GlobalVars.xType == 2)
-                    {
-                        GlobalVars.totalRT += GlobalVars.xRT;
-                        GlobalVars.incongRT += GlobalVars.xRT;
-                    }
+
+
                 }
                 else 
                 {                     
                     GlobalVars.xCorrect = false; 
-                    if (GlobalVars.xType == 3)
-                    {
-                        GlobalVars.imiError += 1;
-                    }
+
                 
                 }
-                //SaveIntoCSV();
+                SaveIntoCSV();
                 TrialSelect();
 
             }
@@ -192,7 +189,10 @@ public class TaskController : MonoBehaviour
     }
     public void TrialSelect()
     {
+        GlobalVars.triggerCode = 98;
+        trigger();
         TrialList.RemoveAt(counter);
+        DurationList.RemoveAt(counter);
 
         if (TrialList.Count != 0)
         {
@@ -221,24 +221,29 @@ public class TaskController : MonoBehaviour
             curSkybox = goHand;
             curColor = goCol;
             doPress = true;
+            GlobalVars.triggerCode = 21;
+            
         }
         if (GlobalVars.xType == 1)//ConNoGo
         {
             curSkybox = noGoHand;
             curColor = noGoCol;
             doPress = false;
+            GlobalVars.triggerCode = 22;
         }
         if (GlobalVars.xType == 2)//InconGo
         {
             curSkybox = noGoHand;
             curColor = goCol;
             doPress = true;
+            GlobalVars.triggerCode = 23;
         }
         if (GlobalVars.xType == 3)//InconNoGo
         {
             curSkybox = goHand;
             curColor = noGoCol;
             doPress = false;
+            GlobalVars.triggerCode = 24;
         }
         FixationDisplay();
     }
@@ -253,18 +258,19 @@ public class TaskController : MonoBehaviour
         ball.SetActive(false);
     }
 
-    void primerDisplay()
-    {
-        timer = 0;
-        ballRend.material.color = Color.grey;
-        fixi.SetActive(false);
-        ball.SetActive(true);
-        state = 3;
-        RenderSettings.skybox = neutral;
-    }
+    //void primerDisplay()
+    //{
+    //    timer = 0;
+    //    ballRend.material.color = Color.grey;
+    //    fixi.SetActive(false);
+    //    ball.SetActive(true);
+    //    state = 3;
+    //    RenderSettings.skybox = neutral;
+    //}
 
     void TrialDisplay()
     {
+        trigger();
         fixi.SetActive(false);
         ball.SetActive(true);
         timer = 0;
@@ -278,17 +284,10 @@ public class TaskController : MonoBehaviour
 
     public void EndExperiment()
     {
-    
-        line.lineLength = 10;
-        Score.SetActive(true);
-        float correctPercentage = ((GlobalVars.correctCount/GlobalVars.xTrials)*100);
-        Val1.text = ("Your average reaction time was: " + (GlobalVars.totalRT / (GlobalVars.xTrials/2)).ToString("0.00000"));
-        //Val2.text = ("Your correct response percentage was: " + (((GlobalVars.correctCount / GlobalVars.xTrials)*100).ToString())+ "%");
-        Val2.text = ("Your correct response percentage was: " + correctPercentage.ToString("#.00") + "%");
-        Val3.text = ("Your made " + GlobalVars.imiError + " Imitation errors");
-        Val4.text = ("Your average imitation reaction time was: " + (GlobalVars.congRT / (GlobalVars.xTrials/4)).ToString("0.00000"));
-        Val5.text = ("Your average anti-imitation reaction time was: " + (GlobalVars.incongRT / (GlobalVars.xTrials / 4)).ToString("0.00000"));
-        ValScore.text = ("Congratulations!!! Your Performance score is: " + (((GlobalVars.totalRT / (GlobalVars.xTrials / 2))*(1 + (1 - (correctPercentage/100)))).ToString("0.00000")));
+        GlobalVars.triggerCode = 99;
+        trigger();
+        LevelContoller.next = true;
+
 
     }
 
@@ -297,37 +296,29 @@ public class TaskController : MonoBehaviour
     void SaveIntoCSV()
     {
           string fileName = Application.persistentDataPath + "/AITtrial.csv";
-          string trialDeets = "\n" + GlobalVars.xType + "," + pressed + "," + GlobalVars.xCorrect + "," + GlobalVars.xRT + "," + System.DateTime.Now;
+          string trialDeets = "\n" + GlobalVars.UID + "," + GlobalVars.Age + "," + GlobalVars.Sex + "," + GlobalVars.xType + "," + GlobalVars.trialDuration + "," + pressed + "," + GlobalVars.xCorrect + "," + GlobalVars.xRT + "," + System.DateTime.Now;
 
         if (!File.Exists(fileName))
         {
-            string trialHeader = "TrialType" + "," + "Pressed" + "," + "Correct" + "," + "RT" + "," + "DateTime";
+            string trialHeader = "UID" + "," + "Age" + "," + "Sex" + "," + "TrialType" + "," + "Duration" + "," + "Pressed" + "," + "Correct" + "," + "RT" + "," + "DateTime";
+            File.WriteAllText(fileName, trialHeader);
+        }
+        File.AppendAllText(fileName, trialDeets);
+    }
+
+    public void trigger()
+    {
+        string fileName = Application.persistentDataPath + "/Events/" + GlobalVars.UID + ".csv";
+        string trialDeets = "\n" + GlobalVars.triggerCode + "," + System.DateTime.Now.ToString("HH:mm:ss:fffff") + "," + System.DateTime.Now.ToString("dd:MM:yyyy") + "," + GlobalVars.currentBlock + "," + GlobalVars.currentLevel + "," + GlobalVars.currentCondition;
+        if (!File.Exists(fileName))
+        {
+            string trialHeader = "TriggerValue" + "," + "SaveTime" + "," + "SaveDate" + "," + "Block" + "," + "Level" + "," + "Condition";
             File.WriteAllText(fileName, trialHeader);
         }
         File.AppendAllText(fileName, trialDeets);
     }
 
 
-    //public void EndBlock()
-    //{
-    //    ScoreKeeper.inTrial = false;
-
-
-    //    if (LevelChanger.savingOn == true)
-    //    {
-
-    //        string fileName = Application.persistentDataPath + "/AITblock.csv";
-    //        string trialDeets = "\n" + DataHandler.UID + "," + DataHandler.Age + "," + DataHandler.Sex + "," + DataHandler.BFOrderNumber + "," + DataHandler.dCDxApAvTotalPoints + "," + DataHandler.dCDxApAvCollects + "," + DataHandler.dCDxApAvCaptures + "," + System.DateTime.Now;
-
-    //        if (!File.Exists(fileName))
-    //        {
-    //            string trialHeader = "UID" + "," + "Age" + "," + "Sex" + "," + "Order" + "," + "Points" + "," + "Collects" + "," + "Captures" + "," + "DateTime";
-    //            File.WriteAllText(fileName, trialHeader);
-    //        }
-    //        File.AppendAllText(fileName, trialDeets);
-    //    }
-    //    SceneManager.LoadScene("IntervalMenu");
-    //}
 
 
 }

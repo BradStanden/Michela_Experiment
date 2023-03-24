@@ -1195,7 +1195,7 @@ VideoPlayer:
   m_PlayOnAwake: 1
   m_SkipOnDrop: 1
   m_Looping: 0
-  m_WaitForFirstFrame: 0
+  m_WaitForFirstFrame: 1
   m_FrameReadyEventEnabled: 0
   m_VideoShaders: []
 --- !u!4 &483755828
@@ -1549,6 +1549,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 0
+  Neutral1: {fileID: 32900000, guid: fb1ade699122d57458d9fe7d67573d4b, type: 3}
+  Neutral2: {fileID: 32900000, guid: fb1ade699122d57458d9fe7d67573d4b, type: 3}
+  Negative1: {fileID: 32900000, guid: fb1ade699122d57458d9fe7d67573d4b, type: 3}
+  Negative2: {fileID: 32900000, guid: fb1ade699122d57458d9fe7d67573d4b, type: 3}
+  Positive1: {fileID: 32900000, guid: fb1ade699122d57458d9fe7d67573d4b, type: 3}
+  Positive2: {fileID: 32900000, guid: fb1ade699122d57458d9fe7d67573d4b, type: 3}
+  videoPlayer: {fileID: 483755827}
+  counter: 0
 --- !u!1 &881718896
 GameObject:
   m_ObjectHideFlags: 0

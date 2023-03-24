@@ -5,9 +5,25 @@ using UnityEngine.SceneManagement;
 
 public class LevelContoller : MonoBehaviour
 {
+    public static bool next;
 
+    public void Update()
+    {
+        if (next == true)
+        {
+            Next();
+        }
+    }
+    public void Next()
+    {
+        next = false;
+        GlobalVars.index += 1;
+        GlobalVars.currentBlock = GlobalVars.setupData[GlobalVars.index, 1];
+        GlobalVars.currentLevel = GlobalVars.setupData[GlobalVars.index, 0];
+        GlobalVars.currentVersion = GlobalVars.setupData[GlobalVars.index, 2];
+        SceneManager.LoadScene(GlobalVars.currentLevel);
 
-
+    }
     public void NineShot()
     {
         SceneManager.LoadScene("NineShot");
@@ -46,4 +62,6 @@ public class LevelContoller : MonoBehaviour
 
         SceneManager.LoadScene("VideoRoom");
     }
+
+    
 }

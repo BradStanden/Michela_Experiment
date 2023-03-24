@@ -6,10 +6,23 @@ public class GlobalVars : MonoBehaviour
 {
 
 
-
+    public static string UID;
+    public static string Age;
+    public static string Sex;
+    public static string whatType;
+    public static int triggerCode;
     public static string Target;
     public static bool TargetHit;
     public static bool Success;
+    public static float baselineDuration;
+    public static string currentBlock;
+    public static string currentLevel;
+    public static string currentCondition;
+    public static string currentVersion;
+
+    public static string[,] setupData;
+    public static string[,] variableData;
+    public static int index;
 
     public static bool inTrial;
 
@@ -21,6 +34,25 @@ public class GlobalVars : MonoBehaviour
     public static float totalScore;
     public static float highScore;
     public static float secondHighScore;
+
+    ///VideoRoom
+    public static List<string> conditionList;
+
+    ///SAM
+    public static string Score;
+
+    //PANAS
+    public static string relaxed;
+    public static string sad;
+    public static string calm;
+    public static string afraid;
+    public static string happy;
+    public static string angry;
+    public static string joyful;
+    public static string hostile;
+    public static string scared;
+    public static string downhearted;
+
 
     //memory
     public static int condition;
@@ -48,5 +80,6 @@ public class GlobalVars : MonoBehaviour
     public static float incongRT;
     public static float imiError;
     public static float correctCount;
+    public static float trialDuration;
 
 }

@@ -17,6 +17,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Brad/Scenes/AIT.unity
     guid: cf66dd13f45784440979a89650f9a2bf
+  - enabled: 1
+    path: Assets/Brad/Scenes/EEGBaseline.unity
+    guid: fc4f6301ce0c28947b630cd8d686f207
+  - enabled: 1
+    path: Assets/Brad/Scenes/PANAS.unity
+    guid: c80ae49e946e62c48b84247916f1bf93
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 518151c3bf9947f47a988b129a18650d, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 97d24293c8de61b44bf8dca8f03489fa, type: 2}
