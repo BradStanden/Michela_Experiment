@@ -2952,7 +2952,6 @@ GameObject:
   - component: {fileID: 782628377}
   - component: {fileID: 782628376}
   - component: {fileID: 782628379}
-  - component: {fileID: 782628380}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -3040,21 +3039,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5891ed4ba764a6949a80996deea869f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  csvFilePath: 
   csvFileName: 
---- !u!114 &782628380
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 782628375}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b80645471ea66a544b8003b92c633a35, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  errorText: {fileID: 204160166}
+  variableFileName: 
 --- !u!1 &806699039
 GameObject:
   m_ObjectHideFlags: 0

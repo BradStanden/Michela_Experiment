@@ -7,14 +7,15 @@ using UnityEngine.SceneManagement;
 public class VideoRoomInstantiator : MonoBehaviour
 {
     public float timer;
-    public VideoClip Neutral1;
-    public VideoClip Neutral2;
-    public VideoClip Negative1;
-    public VideoClip Negative2;
-    public VideoClip Positive1;
-    public VideoClip Positive2;
+    public VideoClip Neutral;
+    public VideoClip Sadness;
+    public VideoClip Fear;
+    public VideoClip Relax;
+    public VideoClip Excite;
 
     public VideoPlayer videoPlayer;
+
+    public GameObject player;
 
     public int counter;
     public bool once;
@@ -29,29 +30,29 @@ public class VideoRoomInstantiator : MonoBehaviour
         GlobalVars.currentCondition = GlobalVars.conditionList[counter];
         GlobalVars.conditionList.RemoveAt(counter);
 
-        if (GlobalVars.currentCondition == "Neutral1")
+        if (GlobalVars.currentCondition == "Neutral")
         {
-            videoPlayer.clip = Neutral1;
+            videoPlayer.clip = Neutral;
+            player.transform.Rotate(0f, 180f, 0.0f, Space.World);
         }
-        if (GlobalVars.currentCondition == "Neutral2")
+
+        if (GlobalVars.currentCondition == "Sadness")//Sadness
         {
-            videoPlayer.clip = Neutral2;
+            videoPlayer.clip = Sadness;
+           
         }
-        if (GlobalVars.currentCondition == "Negative1")
+        if (GlobalVars.currentCondition == "Fear")//Fear
         {
-            videoPlayer.clip = Negative1;
+            videoPlayer.clip = Fear;
         }
-        if (GlobalVars.currentCondition == "Negative2")
+        if (GlobalVars.currentCondition == "Relax")//Relax
         {
-            videoPlayer.clip = Negative2;
+            videoPlayer.clip = Relax;
+            player.transform.Rotate(0f, -45f, 0.0f, Space.World);
         }
-        if (GlobalVars.currentCondition == "Positive1")
+        if (GlobalVars.currentCondition == "Excite")//Excitement
         {
-            videoPlayer.clip = Positive1;
-        }
-        if (GlobalVars.currentCondition == "Positive2")
-        {
-            videoPlayer.clip = Positive2;
+            videoPlayer.clip = Excite;
         }
     }
 

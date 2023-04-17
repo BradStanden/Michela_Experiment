@@ -15678,20 +15678,20 @@ struct VideoRoomInstantiator_tE726D2C0B3FF1BE403D8DACBBBE8721A2E25CB8F  : public
 {
 	// System.Single VideoRoomInstantiator::timer
 	float ___timer_4;
-	// UnityEngine.Video.VideoClip VideoRoomInstantiator::Neutral1
-	VideoClip_t603AD809C228739D932819710E70326FE7A9ADDE* ___Neutral1_5;
-	// UnityEngine.Video.VideoClip VideoRoomInstantiator::Neutral2
-	VideoClip_t603AD809C228739D932819710E70326FE7A9ADDE* ___Neutral2_6;
-	// UnityEngine.Video.VideoClip VideoRoomInstantiator::Negative1
-	VideoClip_t603AD809C228739D932819710E70326FE7A9ADDE* ___Negative1_7;
-	// UnityEngine.Video.VideoClip VideoRoomInstantiator::Negative2
-	VideoClip_t603AD809C228739D932819710E70326FE7A9ADDE* ___Negative2_8;
-	// UnityEngine.Video.VideoClip VideoRoomInstantiator::Positive1
-	VideoClip_t603AD809C228739D932819710E70326FE7A9ADDE* ___Positive1_9;
-	// UnityEngine.Video.VideoClip VideoRoomInstantiator::Positive2
-	VideoClip_t603AD809C228739D932819710E70326FE7A9ADDE* ___Positive2_10;
+	// UnityEngine.Video.VideoClip VideoRoomInstantiator::Neutral
+	VideoClip_t603AD809C228739D932819710E70326FE7A9ADDE* ___Neutral_5;
+	// UnityEngine.Video.VideoClip VideoRoomInstantiator::Sadness
+	VideoClip_t603AD809C228739D932819710E70326FE7A9ADDE* ___Sadness_6;
+	// UnityEngine.Video.VideoClip VideoRoomInstantiator::Fear
+	VideoClip_t603AD809C228739D932819710E70326FE7A9ADDE* ___Fear_7;
+	// UnityEngine.Video.VideoClip VideoRoomInstantiator::Relax
+	VideoClip_t603AD809C228739D932819710E70326FE7A9ADDE* ___Relax_8;
+	// UnityEngine.Video.VideoClip VideoRoomInstantiator::Excite
+	VideoClip_t603AD809C228739D932819710E70326FE7A9ADDE* ___Excite_9;
 	// UnityEngine.Video.VideoPlayer VideoRoomInstantiator::videoPlayer
-	VideoPlayer_t48EA4A8117B822BC59590150DED9AD46C62F65D3* ___videoPlayer_11;
+	VideoPlayer_t48EA4A8117B822BC59590150DED9AD46C62F65D3* ___videoPlayer_10;
+	// UnityEngine.GameObject VideoRoomInstantiator::player
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___player_11;
 	// System.Int32 VideoRoomInstantiator::counter
 	int32_t ___counter_12;
 	// System.Boolean VideoRoomInstantiator::once
@@ -25629,7 +25629,7 @@ IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable4162[4] =
 	static_cast<int32_t>(offsetof(TriggerTester_t514103803C117A3A8003FE2D0836A3440BE774FB, ___timer_4)),static_cast<int32_t>(offsetof(TriggerTester_t514103803C117A3A8003FE2D0836A3440BE774FB, ___pressed_5)),static_cast<int32_t>(offsetof(TriggerTester_t514103803C117A3A8003FE2D0836A3440BE774FB, ___display_6)),static_cast<int32_t>(offsetof(TriggerTester_t514103803C117A3A8003FE2D0836A3440BE774FB, ___pdisplay_7)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable4164[10] = 
 {
-	static_cast<int32_t>(offsetof(VideoRoomInstantiator_tE726D2C0B3FF1BE403D8DACBBBE8721A2E25CB8F, ___timer_4)),static_cast<int32_t>(offsetof(VideoRoomInstantiator_tE726D2C0B3FF1BE403D8DACBBBE8721A2E25CB8F, ___Neutral1_5)),static_cast<int32_t>(offsetof(VideoRoomInstantiator_tE726D2C0B3FF1BE403D8DACBBBE8721A2E25CB8F, ___Neutral2_6)),static_cast<int32_t>(offsetof(VideoRoomInstantiator_tE726D2C0B3FF1BE403D8DACBBBE8721A2E25CB8F, ___Negative1_7)),static_cast<int32_t>(offsetof(VideoRoomInstantiator_tE726D2C0B3FF1BE403D8DACBBBE8721A2E25CB8F, ___Negative2_8)),static_cast<int32_t>(offsetof(VideoRoomInstantiator_tE726D2C0B3FF1BE403D8DACBBBE8721A2E25CB8F, ___Positive1_9)),static_cast<int32_t>(offsetof(VideoRoomInstantiator_tE726D2C0B3FF1BE403D8DACBBBE8721A2E25CB8F, ___Positive2_10)),static_cast<int32_t>(offsetof(VideoRoomInstantiator_tE726D2C0B3FF1BE403D8DACBBBE8721A2E25CB8F, ___videoPlayer_11)),static_cast<int32_t>(offsetof(VideoRoomInstantiator_tE726D2C0B3FF1BE403D8DACBBBE8721A2E25CB8F, ___counter_12)),static_cast<int32_t>(offsetof(VideoRoomInstantiator_tE726D2C0B3FF1BE403D8DACBBBE8721A2E25CB8F, ___once_13)),};
+	static_cast<int32_t>(offsetof(VideoRoomInstantiator_tE726D2C0B3FF1BE403D8DACBBBE8721A2E25CB8F, ___timer_4)),static_cast<int32_t>(offsetof(VideoRoomInstantiator_tE726D2C0B3FF1BE403D8DACBBBE8721A2E25CB8F, ___Neutral_5)),static_cast<int32_t>(offsetof(VideoRoomInstantiator_tE726D2C0B3FF1BE403D8DACBBBE8721A2E25CB8F, ___Sadness_6)),static_cast<int32_t>(offsetof(VideoRoomInstantiator_tE726D2C0B3FF1BE403D8DACBBBE8721A2E25CB8F, ___Fear_7)),static_cast<int32_t>(offsetof(VideoRoomInstantiator_tE726D2C0B3FF1BE403D8DACBBBE8721A2E25CB8F, ___Relax_8)),static_cast<int32_t>(offsetof(VideoRoomInstantiator_tE726D2C0B3FF1BE403D8DACBBBE8721A2E25CB8F, ___Excite_9)),static_cast<int32_t>(offsetof(VideoRoomInstantiator_tE726D2C0B3FF1BE403D8DACBBBE8721A2E25CB8F, ___videoPlayer_10)),static_cast<int32_t>(offsetof(VideoRoomInstantiator_tE726D2C0B3FF1BE403D8DACBBBE8721A2E25CB8F, ___player_11)),static_cast<int32_t>(offsetof(VideoRoomInstantiator_tE726D2C0B3FF1BE403D8DACBBBE8721A2E25CB8F, ___counter_12)),static_cast<int32_t>(offsetof(VideoRoomInstantiator_tE726D2C0B3FF1BE403D8DACBBBE8721A2E25CB8F, ___once_13)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable4165[1] = 
 {
 	static_cast<int32_t>(offsetof(AcceptButton_t21C305FDC9D4CFBAFC17849DA6F389A9C24F0A81, ___xKeyboard_4)),};
