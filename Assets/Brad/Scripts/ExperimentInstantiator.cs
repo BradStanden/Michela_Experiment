@@ -50,7 +50,7 @@ public class ExperimentInstantiator : MonoBehaviour
 
         GlobalVars.baselineDuration = float.Parse(GlobalVars.variableData[1, 1]);
 
-        GlobalVars.conditionList = new List<string> { "Neutral", "Sadness", "Fear", "Relax", "Excite" };
+
         GlobalVars.triggerCode = 0;
         trigger();
 

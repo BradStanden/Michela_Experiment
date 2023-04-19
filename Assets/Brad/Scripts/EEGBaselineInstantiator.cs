@@ -9,6 +9,7 @@ public class EEGBaselineInstantiator : MonoBehaviour
     public GameObject startObs;
     public GameObject eoObs;
     public GameObject ecObs;
+    public GameObject CE;
     public int index;
     public float timer;
     public float baselineDuration;
@@ -24,6 +25,7 @@ public class EEGBaselineInstantiator : MonoBehaviour
         startObs.SetActive(true);
         eoObs.SetActive(false);
         ecObs.SetActive(false);
+        CE.SetActive(false);
         index = 0;
         timer = 0;
         eoInstructions.text = "We need to collect some baseline recordings of your brain. We will collect " + baselineDuration + " seconds of data with your eyes open then another " + baselineDuration + " seconds with your eyes closed. <br>First, we will collect your eyes open data.When you press start a fixation cross will appear in the middle of the screen.Please focus on this and try to remain still.You can blink as normal. ";
@@ -75,9 +77,11 @@ public class EEGBaselineInstantiator : MonoBehaviour
     {
         GlobalVars.triggerCode = 2;
         SaveIntoCSV();
+        endTone.Play();
         startObs.SetActive(false);
         eoObs.SetActive(false);
         ecObs.SetActive(false);
+        CE.SetActive(true);
         // Disable the main light source
         RenderSettings.sun.enabled = false;
 

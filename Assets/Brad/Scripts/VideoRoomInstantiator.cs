@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
 using UnityEngine.SceneManagement;
+using System;
 
 public class VideoRoomInstantiator : MonoBehaviour
 {
@@ -24,11 +25,10 @@ public class VideoRoomInstantiator : MonoBehaviour
     {
         timer = 0;
         once = false;
+    
+       
+        GlobalVars.currentCondition = GlobalVars.conditionList[(Convert.ToInt32(GlobalVars.currentBlock) - 1)];
 
-        ///sorts out the condition
-        counter = Random.Range(0, GlobalVars.conditionList.Count);
-        GlobalVars.currentCondition = GlobalVars.conditionList[counter];
-        GlobalVars.conditionList.RemoveAt(counter);
 
         if (GlobalVars.currentCondition == "Neutral")
         {

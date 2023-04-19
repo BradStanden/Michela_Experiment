@@ -11,6 +11,9 @@ public class DemographicsInstantiator : MonoBehaviour
     public TMP_InputField Agetext;
     public TMP_InputField Sextext;
 
+
+    public TextMeshProUGUI error;
+
     public GameObject Sex;
     public GameObject UID;
     public GameObject Age;
@@ -36,7 +39,30 @@ public class DemographicsInstantiator : MonoBehaviour
     }
     public void submitDemographics()
     {
-        LevelContoller.next = true;
+        if (GlobalVars.UID == null || GlobalVars.Age == null || GlobalVars.Sex == null || GlobalVars.Randomization == null)
+        {
+            if (GlobalVars.UID == null)
+            {
+                error.text = "Please enter a UID";
+            }
+            else if (GlobalVars.Age == null)
+            {
+                error.text = "Please enter an age";
+            }
+            else if (GlobalVars.Sex == null)
+            {
+                error.text = "Please select an option for sex";
+            }
+            else if (GlobalVars.Randomization == null)
+            {
+                error.text = "Please enter a condition";
+            }
+        }
+        else 
+        {
+            LevelContoller.next = true;
+        }
+
 
     }
 
@@ -58,6 +84,18 @@ public class DemographicsInstantiator : MonoBehaviour
         GlobalVars.Sex = "Male";
 
     }
+    public void Cond1()
+    {
+        GlobalVars.Randomization = "1";
+        GlobalVars.conditionList = new List<string> { "Fear", "Sadness", "Neutral", "Excite", "Relax" };
+
+    }
+    public void Cond2()
+    {
+        GlobalVars.Randomization = "2";
+        GlobalVars.conditionList = new List<string> { "Excite", "Relax", "Neutral", "Fear", "Sadness" };
+    }
+
     public void Female()
     {
         GlobalVars.Sex = "Female";

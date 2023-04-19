@@ -9,6 +9,7 @@ public class GlobalVars : MonoBehaviour
     public static string UID;
     public static string Age;
     public static string Sex;
+    public static string Randomization;
     public static string whatType;
     public static int triggerCode;
     public static string Target;
