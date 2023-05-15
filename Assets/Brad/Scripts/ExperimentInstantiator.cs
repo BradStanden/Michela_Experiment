@@ -49,7 +49,8 @@ public class ExperimentInstantiator : MonoBehaviour
         }
 
         GlobalVars.baselineDuration = float.Parse(GlobalVars.variableData[1, 1]);
-
+        GlobalVars.videoDuration = float.Parse(GlobalVars.variableData[2, 1]);
+        //GlobalVars.videoDuration = 10;
 
         GlobalVars.triggerCode = 0;
         trigger();

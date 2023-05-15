@@ -16,6 +16,7 @@ public class GlobalVars : MonoBehaviour
     public static bool TargetHit;
     public static bool Success;
     public static float baselineDuration;
+    public static float videoDuration;
     public static string currentBlock;
     public static string currentLevel;
     public static string currentCondition;

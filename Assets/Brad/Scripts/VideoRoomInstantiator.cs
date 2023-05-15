@@ -61,7 +61,7 @@ public class VideoRoomInstantiator : MonoBehaviour
     {
         timer += Time.deltaTime;
         
-        if (timer >= 20f && once == false)
+        if (timer >= GlobalVars.videoDuration && once == false)
         {
             once = true;
             LevelContoller.next = true;

@@ -1407,7 +1407,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 2.2460003}
-  m_SizeDelta: {x: 20, y: 20}
+  m_SizeDelta: {x: 100, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &133682031
 MonoBehaviour:
@@ -2095,7 +2095,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &737736028
 Transform:
   m_ObjectHideFlags: 0
@@ -2250,6 +2250,7 @@ MonoBehaviour:
   startObs: {fileID: 1668441836}
   eoObs: {fileID: 2135131441}
   ecObs: {fileID: 1102098331}
+  CE: {fileID: 737736027}
   index: 0
   timer: 0
   baselineDuration: 0
@@ -2513,7 +2514,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1102098332
 Transform:
   m_ObjectHideFlags: 0
